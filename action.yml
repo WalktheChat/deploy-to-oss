@@ -10,6 +10,8 @@ inputs:
     description: access secret you create
   bucket:
     description: bucket
+  region:
+    description: region
   endpoint:
     description: oss region domain
   localPath:
