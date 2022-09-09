@@ -43,7 +43,7 @@ async function run() {
 
     const files = fg.sync(localPath, { onlyFiles: true, dot: true });
 
-    await Promise.all(files.map(async file => store.put(remotePath + file, file)));
+    await Promise.all(files.map(async file => store.put(remotePath + file, file, { headers })));
     core.setOutput('upload success\n', files.join('\n'));
 }
 
