@@ -1,6 +1,6 @@
 const core = require('@actions/core');
 const OSS = require('ali-oss');
-const glob = require('glob');
+const fg = require('fast-glob');
 
 async function run() {
     const accessKeyId = core.getInput('accessKeyId', { required: true });
@@ -37,7 +37,7 @@ async function run() {
         headers['x-oss-forbid-overwrite'] = overwrite;
     }
 
-    const files = glob.sync(localPath);
+    const files = fg.sync(localPath, { onlyFiles: true, dot: true });
 
     await Promise.all(files.map(async file => store.put(remotePath + file, file)));
     core.setOutput('upload success\n', files.join('\n'));
