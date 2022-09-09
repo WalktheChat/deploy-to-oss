@@ -94831,6 +94831,10 @@ const OSS = __nccwpck_require__(45548);
 const fg = __nccwpck_require__(99691);
 
 async function run() {
+    const cwd = core.getInput('cwd');
+    if (cwd) {
+        process.chdir(cwd);
+    }
     const accessKeyId = core.getInput('accessKeyId', { required: true });
     const accessKeySecret = core.getInput('accessKeySecret', { required: true });
     const bucket = core.getInput('bucket', { required: true });

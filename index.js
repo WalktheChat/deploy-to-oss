@@ -3,6 +3,10 @@ const OSS = require('ali-oss');
 const fg = require('fast-glob');
 
 async function run() {
+    const cwd = core.getInput('cwd');
+    if (cwd) {
+        process.chdir(cwd);
+    }
     const accessKeyId = core.getInput('accessKeyId', { required: true });
     const accessKeySecret = core.getInput('accessKeySecret', { required: true });
     const bucket = core.getInput('bucket', { required: true });

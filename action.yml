@@ -2,6 +2,8 @@ name: deploy-to-oss
 description: upload files to aliyun oss
 author: walkthechat
 inputs:
+  cwd:
+    description: change working directory
   accessKeyId:
     required: true
     description: access key you create on aliyun console website
