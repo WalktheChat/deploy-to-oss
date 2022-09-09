@@ -23,16 +23,18 @@ async function run() {
     const objectAcl = core.getInput('objectAcl');
     const tagging = core.getInput('tagging');
     const overwrite = core.getInput('overwrite');
-    const headers = {
-        // 指定Object的存储类型。
-        'x-oss-storage-class': storageClass || 'Standard',
-        // 指定Object的访问权限。
-        'x-oss-object-acl': objectAcl || 'private',
-        // 指定PutObject操作时是否覆盖同名目标Object。此处设置为true，表示禁止覆盖同名Object。
-        'x-oss-forbid-overwrite': overwrite || 'true',
-    };
+    const headers = {};
     if (tagging) {
         headers['x-oss-tagging'] = tagging;
+    }
+    if (storageClass) {
+        headers['x-oss-storage-class'] = storageClass;
+    }
+    if (objectAcl) {
+        headers['x-oss-object-acl'] = objectAcl;
+    }
+    if (overwrite) {
+        headers['x-oss-forbid-overwrite'] = overwrite;
     }
 
     const files = glob.sync(localPath);

@@ -24,13 +24,10 @@ inputs:
     default: /
   storageClass:
     description: aliyun oss storage class
-    default: Standard
   objectAcl:
     description: access control
-    default: private
   overwrite:
     description: whether overwrite same name object
-    default: 'true'
   tagging:
     description: tags. TagA&TagB=B
 
