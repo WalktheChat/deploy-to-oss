@@ -1,0 +1,10 @@
+{
+  "name": "deploy-to-oss",
+  "version": "1.0.0",
+  "dependencies": {
+    "@actions/core": "^1.9.1",
+    "@actions/github": "^5.0.3",
+    "ali-oss": "^6.17.1",
+    "glob": "^8.0.3"
+  }
+}

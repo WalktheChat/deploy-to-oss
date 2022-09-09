@@ -1,0 +1,37 @@
+name: deploy-to-oss
+description: upload files to aliyun oss
+author: walkthechat
+inputs:
+  accessKeyId:
+    required: true
+    description: access key you create on aliyun console website
+  accessKeySecret:
+    required: true
+    description: access secret you create
+  bucket:
+    description: bucket
+  endpoint:
+    description: oss region domain
+  localPath:
+    required: true
+    description: local path to upload
+    default: dist/**/*
+  remotePath:
+    required: true
+    description: remote path
+    default: /
+  storageClass:
+    description: aliyun oss storage class
+    default: Standard
+  objectAcl:
+    description: access control
+    default: private
+  overwrite:
+    description: whether overwrite same name object
+    default: 'true'
+  tagging:
+    description: tags. TagA&TagB=B
+
+runs:
+  using: node16
+  main: dist/index.js
